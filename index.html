@@ -1,3 +1,14 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
 <title>Heladería Los Gringos</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -364,7 +375,8 @@
     html{scroll-behavior:auto}
   }
 </style>
-
+</head>
+<body>
 <header class="bar">
   <div class="wrap bar-in">
     <a class="brand" href="#top">Los Gringos</a>
@@ -422,7 +434,7 @@
           <div class="slide" role="img" aria-label="Cucuruchos de helado de chocolate con pistacho" style="--f:var(--foto3);--pos:center 45%"></div>
           <div class="puntos" id="puntos"></div>
         </div>
-        <div class="cards" id="cardsHelados">
+        <div class="cards">
           <div class="card">
             <span class="qty">1 kg</span>
             <span class="det">Hasta 5 gustos</span>
@@ -447,23 +459,11 @@
             <span class="price">$ 3.200</span>
             <button class="btn add" data-name="Cucurucho doble" data-price="3200" data-emoji="🍦">Agregar</button>
           </div>
-          <div class="card">
-            <span class="qty">Licuado grande</span>
-            <span class="det">De frutilla o banana</span>
-            <span class="price">$ 5.000</span>
-            <button class="btn add" data-name="Licuado grande" data-price="5000" data-emoji="🥤">Agregar</button>
-          </div>
-          <div class="card">
-            <span class="qty">Licuado chico</span>
-            <span class="det">De frutilla o banana</span>
-            <span class="price">$ 4.000</span>
-            <button class="btn add" data-name="Licuado chico" data-price="4000" data-emoji="🥤">Agregar</button>
-          </div>
         </div>
       </div>
 
       <div class="board">
-        <div class="fams" id="famsHelados">
+        <div class="fams">
           <div class="fam">
             <h3><span class="dot" style="background:#C08A3E"></span>Dulce de leche</h3>
             <ul>
@@ -564,7 +564,7 @@
       <p>Todas son grandes, de 8 porciones. Hasta dos gustos en la misma pizza.</p>
     </div>
 
-    <div class="prods" id="prodsPizzas">
+    <div class="prods">
       <article class="prod">
         <h3>Muzzarella</h3>
         <p class="det">Salsa de tomate, muzzarella y aceitunas</p>
@@ -753,11 +753,15 @@
       <p class="sub">Bebidas</p>
       <h2>Para acompañar</h2>
     </div>
-    <div class="drinks" id="drinksBebidas">
+    <div class="drinks">
       <div class="drink"><span class="nm">Gaseosa línea Coca-Cola 1,5 L</span><span class="pr">$ 3.900</span><button class="plus add" data-name="Gaseosa 1,5 L" data-price="3900" data-emoji="🥤" aria-label="Agregar gaseosa 1,5 L">+</button></div>
       <div class="drink"><span class="nm">Gaseosa lata 354 ml</span><span class="pr">$ 1.900</span><button class="plus add" data-name="Gaseosa lata" data-price="1900" data-emoji="🥤" aria-label="Agregar gaseosa en lata">+</button></div>
       <div class="drink"><span class="nm">Agua mineral 500 ml</span><span class="pr">$ 1.500</span><button class="plus add" data-name="Agua mineral 500 ml" data-price="1500" data-emoji="🥤" aria-label="Agregar agua mineral">+</button></div>
       <div class="drink"><span class="nm">Agua saborizada 1,5 L</span><span class="pr">$ 3.200</span><button class="plus add" data-name="Agua saborizada 1,5 L" data-price="3200" data-emoji="🥤" aria-label="Agregar agua saborizada">+</button></div>
+      <div class="drink"><span class="nm">Cerveza en porrón 1 L</span><span class="pr">$ 4.500</span><button class="plus add" data-name="Cerveza 1 L" data-price="4500" data-emoji="🍺" aria-label="Agregar cerveza">+</button></div>
+      <div class="drink"><span class="nm">Licuado de frutilla o banana</span><span class="pr">$ 4.200</span><button class="plus add" data-name="Licuado" data-price="4200" data-emoji="🥤" aria-label="Agregar licuado">+</button></div>
+      <div class="drink"><span class="nm">Café en jarrito</span><span class="pr">$ 2.100</span><button class="plus add" data-name="Café en jarrito" data-price="2100" data-emoji="☕" aria-label="Agregar café">+</button></div>
+      <div class="drink"><span class="nm">Submarino</span><span class="pr">$ 3.400</span><button class="plus add" data-name="Submarino" data-price="3400" data-emoji="☕" aria-label="Agregar submarino">+</button></div>
     </div>
   </section>
 
@@ -841,18 +845,9 @@
 
 <script>
 (function(){
-  var WHATSAPP = '5491158143133';   // <-- poner acá el número del local (54 9 11 ...)
+  var WHATSAPP = '5491100000000';   // <-- poner acá el número del local (54 9 11 ...)
   var LOCAL = 'Heladería Los Gringos';
   var items = [];
-
-  // --- Planilla de Google Sheets para actualizar los productos ---
-  // Pegá acá el link de la planilla (el de la barra de direcciones alcanza).
-  // La planilla tiene que estar compartida como "Cualquier persona con el enlace: Lector".
-  // Instrucciones para usarla, adentro de la propia planilla, en la pestaña "Cómo usarla".
-  // Si esto queda vacío, la página usa los productos que ya están escritos más abajo.
-  var PLANILLA = 'https://docs.google.com/spreadsheets/d/1mdIPij6E6rnHSNlRXFHIR8SvgEXYo1rIFL-gwRmiRR4/edit';
-  var HOJA_SABORES = 'Sabores';   // pestaña con los sabores de helado (por familia)
-  var HOJA_PLANILLA = 'Productos';   // el nombre de la pestaña, tal cual figura abajo en la planilla
 
   try{
     var guardado = localStorage.getItem('lg_pedido');
@@ -1056,221 +1051,6 @@
            document.getElementById('banPrev'), document.getElementById('banNext'), 5000);
   carrusel(document.getElementById('galeria'), document.getElementById('puntos'), null, null, 4500);
 
-  // --- productos desde Google Sheets ---
-  var normalizar = function(t){ return (t == null ? '' : String(t)).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); };
-  var clave = function(t){ return normalizar(t).replace(/[^a-z0-9]/g,''); };
-
-  // Acepta el link común de la planilla (el de la barra de direcciones) o uno ya publicado como CSV.
-  function urlDelCsv(link, hoja){
-    var limpio = String(link || '').trim();
-    if(!limpio) return '';
-    if(/output=csv/i.test(limpio)) return limpio;
-    var m = limpio.match(/\/spreadsheets\/d\/(?:e\/)?([A-Za-z0-9_-]+)/);
-    var id = m && m[1];
-    if(!id) return '';
-    return 'https://docs.google.com/spreadsheets/d/' + id +
-           '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent(hoja || 'Productos');
-  }
-
-  // Parser de CSV: respeta las comas y los saltos de línea que estén entre comillas.
-  function leerCsv(texto){
-    var filas = [], fila = [], campo = '', enComillas = false;
-    var t = texto.replace(/\r\n/g,'\n').replace(/\r/g,'\n');
-    for(var i=0;i<t.length;i++){
-      var ch = t[i];
-      if(enComillas){
-        if(ch === '"'){
-          if(t[i+1] === '"'){ campo += '"'; i++; } else enComillas = false;
-        } else campo += ch;
-      } else if(ch === '"'){ enComillas = true; }
-      else if(ch === ','){ fila.push(campo); campo = ''; }
-      else if(ch === '\n'){ fila.push(campo); filas.push(fila); fila = []; campo = ''; }
-      else campo += ch;
-    }
-    if(campo !== '' || fila.length){ fila.push(campo); filas.push(fila); }
-    return filas;
-  }
-
-  // "Mostrar en la web" → mostrar; "Precio " → precio. Así el orden de las columnas no importa.
-  function filasAProductos(filas){
-    if(!filas.length) return [];
-    var cab = filas[0].map(clave);
-    var col = function(){
-      var nombres = Array.prototype.slice.call(arguments);
-      for(var n=0;n<nombres.length;n++){
-        var k = clave(nombres[n]);
-        for(var i=0;i<cab.length;i++){
-          if(cab[i] === k || cab[i].indexOf(k) === 0) return i;
-        }
-      }
-      return -1;
-    };
-    var iCat = col('categoria'), iNom = col('nombre','producto'), iPre = col('precio'),
-        iDes = col('descripcion','detalle'), iEmo = col('emoji'), iMos = col('mostrarenlaweb','mostrar');
-    if(iNom === -1 || iPre === -1) return [];
-
-    var salida = [];
-    filas.slice(1).forEach(function(f){
-      var dato = function(i){ return i === -1 ? '' : String(f[i] == null ? '' : f[i]).trim(); };
-      var nombre = dato(iNom);
-      if(!nombre) return;
-      if(iMos !== -1 && /^(no|n)$/i.test(normalizar(dato(iMos)))) return;
-      var precio = parseInt(dato(iPre).replace(/[^0-9]/g,''), 10);
-      if(!precio) return;
-      salida.push({
-        categoria: clave(dato(iCat)),
-        nombre: nombre,
-        precio: precio,
-        descripcion: dato(iDes),
-        emoji: dato(iEmo)
-      });
-    });
-    return salida;
-  }
-
-  function renderPizzas(rows){
-    var cont = document.getElementById('prodsPizzas');
-    if(!cont || !rows.length) return;
-    cont.textContent = '';
-    rows.forEach(function(r){
-      var art = document.createElement('article');
-      art.className = 'prod';
-      var h3 = document.createElement('h3'); h3.textContent = r.nombre;
-      var det = document.createElement('p'); det.className = 'det'; det.textContent = r.descripcion || '';
-      var sizes = document.createElement('div'); sizes.className = 'sizes uno';
-      var btn = document.createElement('button'); btn.className = 'size add';
-      btn.setAttribute('data-name', r.nombre);
-      btn.setAttribute('data-price', r.precio);
-      btn.setAttribute('data-emoji', r.emoji || '🍕');
-      var small = document.createElement('small'); small.textContent = 'Grande · 8 porciones';
-      var b = document.createElement('b'); b.textContent = plata(r.precio);
-      btn.appendChild(small); btn.appendChild(b);
-      sizes.appendChild(btn);
-      art.appendChild(h3); art.appendChild(det); art.appendChild(sizes);
-      cont.appendChild(art);
-    });
-  }
-
-  function renderHelados(rows){
-    var cont = document.getElementById('cardsHelados');
-    if(!cont || !rows.length) return;
-    cont.textContent = '';
-    rows.forEach(function(r){
-      var card = document.createElement('div'); card.className = 'card';
-      var qty = document.createElement('span'); qty.className = 'qty'; qty.textContent = r.nombre;
-      var det = document.createElement('span'); det.className = 'det'; det.textContent = r.descripcion || '';
-      var price = document.createElement('span'); price.className = 'price'; price.textContent = plata(r.precio);
-      var btn = document.createElement('button'); btn.className = 'btn add';
-      btn.setAttribute('data-name', r.nombre);
-      btn.setAttribute('data-price', r.precio);
-      btn.setAttribute('data-emoji', r.emoji || '🍦');
-      btn.textContent = 'Agregar';
-      card.appendChild(qty); card.appendChild(det); card.appendChild(price); card.appendChild(btn);
-      cont.appendChild(card);
-    });
-  }
-
-  function renderBebidas(rows){
-    var cont = document.getElementById('drinksBebidas');
-    if(!cont || !rows.length) return;
-    cont.textContent = '';
-    rows.forEach(function(r){
-      var div = document.createElement('div'); div.className = 'drink';
-      var nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = r.nombre;
-      var pr = document.createElement('span'); pr.className = 'pr'; pr.textContent = plata(r.precio);
-      var btn = document.createElement('button'); btn.className = 'plus add';
-      btn.setAttribute('data-name', r.nombre);
-      btn.setAttribute('data-price', r.precio);
-      btn.setAttribute('data-emoji', r.emoji || '🥤');
-      btn.setAttribute('aria-label', 'Agregar ' + r.nombre);
-      btn.textContent = '+';
-      div.appendChild(nm); div.appendChild(pr); div.appendChild(btn);
-      cont.appendChild(div);
-    });
-  }
-
-  // colores por familia de sabor (si aparece una familia nueva, usa el color por defecto)
-  var COLOR_FAMILIA = {
-    dulcedeleche: '#C08A3E', chocolates: '#4E2A17', cremas: '#F0DDB4',
-    postresygolosinas: '#8A5518', frutalesalacrema: '#C0342A', alagua: '#E0A32F'
-  };
-  var COLOR_FAMILIA_DEFECTO = '#B3701A';
-
-  function filasASabores(filas){
-    if(!filas.length) return [];
-    var cab = filas[0].map(clave);
-    var col = function(){
-      var nombres = Array.prototype.slice.call(arguments);
-      for(var n=0;n<nombres.length;n++){
-        var k = clave(nombres[n]);
-        for(var i=0;i<cab.length;i++){
-          if(cab[i] === k || cab[i].indexOf(k) === 0) return i;
-        }
-      }
-      return -1;
-    };
-    var iFam = col('familia'), iNom = col('sabor','nombre'), iMos = col('mostrarenlaweb','mostrar');
-    if(iFam === -1 || iNom === -1) return [];
-
-    var salida = [];
-    filas.slice(1).forEach(function(f){
-      var dato = function(i){ return i === -1 ? '' : String(f[i] == null ? '' : f[i]).trim(); };
-      var nombre = dato(iNom), familia = dato(iFam);
-      if(!nombre || !familia) return;
-      if(iMos !== -1 && /^(no|n)$/i.test(normalizar(dato(iMos)))) return;
-      salida.push({ familia: familia, nombre: nombre });
-    });
-    return salida;
-  }
-
-  function renderSabores(rows){
-    var cont = document.getElementById('famsHelados');
-    if(!cont || !rows.length) return;
-    cont.textContent = '';
-    var familias = [], porFamilia = {};
-    rows.forEach(function(r){
-      var k = clave(r.familia);
-      if(!porFamilia[k]){ porFamilia[k] = { nombre: r.familia, sabores: [] }; familias.push(k); }
-      porFamilia[k].sabores.push(r.nombre);
-    });
-    familias.forEach(function(k){
-      var fam = porFamilia[k];
-      var div = document.createElement('div'); div.className = 'fam';
-      var h3 = document.createElement('h3');
-      var dot = document.createElement('span'); dot.className = 'dot';
-      dot.style.background = COLOR_FAMILIA[k] || COLOR_FAMILIA_DEFECTO;
-      h3.appendChild(dot);
-      h3.appendChild(document.createTextNode(fam.nombre));
-      var ul = document.createElement('ul');
-      fam.sabores.forEach(function(s){
-        var li = document.createElement('li'); li.textContent = s; ul.appendChild(li);
-      });
-      div.appendChild(h3); div.appendChild(ul);
-      cont.appendChild(div);
-    });
-  }
-
-  (function traerPlanilla(){
-    var url = urlDelCsv(PLANILLA, HOJA_PLANILLA);
-    if(url) fetch(url, { cache: 'no-store' }).then(function(r){ return r.text(); }).then(function(txt){
-      var productos = filasAProductos(leerCsv(txt));
-      if(!productos.length) return;
-      var porCat = {};
-      productos.forEach(function(p){
-        (porCat[p.categoria] = porCat[p.categoria] || []).push(p);
-      });
-      if(porCat.pizzas) renderPizzas(porCat.pizzas);
-      if(porCat.helados) renderHelados(porCat.helados);
-      if(porCat.bebidas) renderBebidas(porCat.bebidas);
-    }).catch(function(){ /* si falla, quedan los productos que ya están escritos en la página */ });
-
-    var urlSabores = urlDelCsv(PLANILLA, HOJA_SABORES);
-    if(urlSabores) fetch(urlSabores, { cache: 'no-store' }).then(function(r){ return r.text(); }).then(function(txt){
-      var sabores = filasASabores(leerCsv(txt));
-      if(sabores.length) renderSabores(sabores);
-    }).catch(function(){ /* si falla, quedan los sabores que ya están escritos en la página */ });
-  })();
-
   // carteles que van cambiando en la banda de pizzas
   var carteles = Array.prototype.slice.call(document.querySelectorAll('#carteles .cartel'));
   var quieto = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1286,3 +1066,6 @@
   pintar();
 })();
 </script>
+
+</body>
+</html>
