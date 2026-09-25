@@ -182,10 +182,9 @@
     .helados-top{grid-template-columns:1fr}
     .helados-top .cards{grid-template-columns:repeat(auto-fit,minmax(155px,1fr))}
   }
-  .slide{
-    position:absolute;inset:0;opacity:0;transition:opacity 1s ease;
-    background:var(--f) var(--pos,center)/cover no-repeat;
-  }
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+  .slide::before{content:"";position:absolute;inset:0;background:var(--f) center/cover;filter:blur(22px) brightness(.75);transform:scale(1.15)}
+  .slide::after{content:"";position:absolute;inset:0;background:var(--f) center/contain no-repeat}
   .slide.on{opacity:1}
   .puntos{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:8px;z-index:2}
   .puntos button{
@@ -845,7 +844,7 @@
 
 <script>
 (function(){
-  var WHATSAPP = '5491100000000';   // <-- poner acá el número del local (54 9 11 ...)
+  var WHATSAPP = '5491158143133';   // <-- poner acá el número del local (54 9 11 ...)
   var LOCAL = 'Heladería Los Gringos';
   var items = [];
 
@@ -930,7 +929,7 @@
     document.getElementById('barCount').textContent = unidades();
     fab.hidden = !hay || abierto;
     var aviso = document.getElementById('avisoConfig');
-    if(aviso) aviso.hidden = WHATSAPP !== '5491100000000';
+    if(aviso) aviso.hidden = WHATSAPP !== '5491158143133';
   }
 
   function cambiar(idx, d){
